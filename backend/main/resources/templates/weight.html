@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Weight</title>
 </head>
 <body>
+    <div class="options">
+        <a href="/length">Length</a>
+        <a href="/weight">Weight</a>
+        <a href="/temperature">Temperature</a>
+    </div>
+    <div class="flex-content">
+        <form action="/submit-data" method="post" th:object="${submission}">
+            <label for="weight">Enter the weight to convert</label><br>
+            <input type="text" id="weight" th:field="*{value}"><br>
 
+            <label for="iunit">Unit to Convert from</label><br>
+            <input type="text" id="iunit" th:field="*{fromUnit}"><br>
+
+            <label for="funit">Unit to Convert to</label><br>
+            <input type="text" id="funit" th:field="*{toUnit}"><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
 </body>
 </html>
